@@ -30,9 +30,8 @@ services:
         sync: false
 
   # Frontend Static Site
-  - type: web
+  - type: static
     name: qcm-revision-frontend
-    env: static
     plan: free
     rootDir: frontend
     buildCommand: npm install && npm run build
