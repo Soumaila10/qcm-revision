@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
+import { API_BASE_URL } from '../services/api';
+
 import { motion, AnimatePresence } from 'framer-motion';
 import { Mail, Lock, Shield, Award, CheckCircle, AlertCircle } from 'lucide-react';
 
@@ -56,7 +58,8 @@ export default function LoginPage() {
     const left = window.screen.width / 2 - width / 2;
     const top = window.screen.height / 2 - height / 2;
     
-    const url = `/api/auth/${provider}`;
+    const baseUrl = API_BASE_URL.startsWith('http') ? API_BASE_URL : '';
+    const url = `${baseUrl}/api/auth/${provider}`;
     const popup = window.open(
       url,
       `Connexion avec ${provider}`,

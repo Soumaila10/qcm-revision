@@ -1,6 +1,7 @@
 import { frontendQuestionsList } from './questionsData';
 
-const API_BASE_URL = ''; // Relative path, proxied to http://localhost:5000 in dev
+export const API_BASE_URL = import.meta.env.VITE_API_URL || '';
+
 
 // Determine if we should use mock mode (fallback when backend is down)
 let useMockMode = localStorage.getItem('fede_master_demo_mode') === 'true';
