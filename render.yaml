@@ -30,12 +30,12 @@ services:
         sync: false
 
   # Frontend Static Site
-  - type: static
+  - type: web
     name: qcm-revision-frontend
-    plan: free
+    env: static
     rootDir: frontend
     buildCommand: npm install && npm run build
-    publishDir: dist
+    publishPath: dist
     envVars:
       - key: VITE_API_URL
         fromService:
